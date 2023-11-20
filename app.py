@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, render_template
 import mysql.connector
 
 app = Flask(__name__)
@@ -60,6 +60,8 @@ def insercion(character_id, descripcion, especie, dimension):
     conn = mysql.connector.connect(host='bgxxvvo90ixy8eb7ixyj-mysql.services.clever-cloud.com', user='uys3wvexwsduwfxe', passwd='OTMzZjpFh7Xw3p0PYBSm', database="bgxxvvo90ixy8eb7ixyj")
 
     query = ("SELECT * FROM personajes WHERE nombre = %s")
+
+    cursor = conn.cursor()
 
     cursor.execute(query, (character_id,))
 
